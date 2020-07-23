@@ -1,5 +1,9 @@
 const container = document.querySelector('.coin-container');
 
+start = 0;
+end = 50;
+
+// 조건에 저숫자에 해당하는 array 있는지도 체크하게 하기. 그만큼 넘길 사람도 없겠지만;
 // 로딩 구현하기
 const createContent = (name, kind, value) => {
 	const content = document.createElement('article');
@@ -23,7 +27,7 @@ const createContent = (name, kind, value) => {
 };
 
 const giveData = json => {
-	json.forEach(async coin => {
+	json.forEach(coin => {
 		const name = coin.name;
 		const {
 			quotes,
@@ -33,7 +37,7 @@ const giveData = json => {
 		} = coin;
 		const keys = Object.keys(quotes);
 		const money = keys[0];
-		await createContent(name, money, price);
+		createContent(name, money, price);
 	});
 };
 
