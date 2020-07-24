@@ -8,6 +8,7 @@ body {
 	height: 100%;
 	width: 100vw;
 	background-color: #ffffff;
+	font-family: 'Cormorant Garamond', serif;
 }
 
 .header {
@@ -23,7 +24,7 @@ body {
 	z-index: 2;
 }
 .header .header__title {
-	font-size: 3rem;
+	font-size: 3.3rem;
 }
 
 .main {
@@ -37,13 +38,13 @@ body {
 
 .main .main__title {
 	padding: 5.5rem;
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 .main .coin-container {
 	display: grid;
 	grid-auto-rows: 6rem;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 15rem);
 	gap: 3rem;
 	padding: 0 1rem;
 	text-align: center;
@@ -56,6 +57,7 @@ body {
 	align-items: center;
 	border: solid 1px black;
 	border-radius: 5px;
+	font-family: 'Sunflower', sans-serif;
 }
 
 .coin-container .coin .name {
