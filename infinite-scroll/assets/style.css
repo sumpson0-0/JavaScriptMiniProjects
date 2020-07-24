@@ -2,6 +2,7 @@
 
 * {
 	box-sizing: border-box;
+	text-align: center;
 }
 
 body {
@@ -57,7 +58,6 @@ body {
 	grid-auto-rows: 6rem;
 	grid-template-columns: repeat(3, 15rem);
 	gap: 3rem;
-	text-align: center;
 }
 
 .main .coin-container .coin {
