@@ -1,10 +1,21 @@
 const container = document.querySelector('.coin-container');
+const loadingSpan = document.querySelector('.loading');
 
-start = 0;
-end = 50;
+let loading = false;
+let start = 0;
+let end = 48;
 
-// 조건에 저숫자에 해당하는 array 있는지도 체크하게 하기. 그만큼 넘길 사람도 없겠지만;
-// 로딩 구현하기
+const handleScroll = () => {
+	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+	if (scrollTop + clientHeight >= scrollHeight - 1) {
+		start = start + 49;
+		end = end + 49;
+		loading = false;
+		init();
+	}
+};
+
 const createContent = (name, kind, value) => {
 	const content = document.createElement('article');
 	content.className = 'coin';
@@ -24,10 +35,14 @@ const createContent = (name, kind, value) => {
 	div.appendChild(price);
 	content.appendChild(div);
 	container.appendChild(content);
+	if (loading) {
+		loadingSpan.classList.remove('show');
+	}
+	window.addEventListener('scroll', handleScroll);
 };
 
-const giveData = json => {
-	json.forEach(coin => {
+const giveData = result => {
+	result.forEach(coin => {
 		const name = coin.name;
 		const {
 			quotes,
@@ -45,11 +60,23 @@ const getData = () => {
 	fetch(`https://api.coinpaprika.com/v1/tickers`)
 		.then(response => {
 			if (response && response.ok) {
+				loading = true;
 				return response.json();
 			}
 		})
-		.then(json => giveData(json))
+		.then(json => {
+			const result = json.slice(start, end);
+			giveData(result);
+		})
 		.catch(error => console.log(error));
 };
 
-getData();
+const init = () => {
+	if (loading === false) {
+		loadingSpan.classList.add('show');
+		window.removeEventListener('scroll', handleScroll);
+		getData();
+	}
+};
+
+init();
