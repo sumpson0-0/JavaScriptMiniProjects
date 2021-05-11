@@ -31,7 +31,7 @@
 		"json5": "^1.0.1",
 		"locate-path": "^2.0.0",
 		"minimatch": "^3.0.4",
-		"lodash": "^4.17.19",
+		"lodash": "^4.17.21",
 		"minimist": "^1.2.5",
 		"normalize-package-data": "^2.5.0",
 		"ms": "^2.1.2",
