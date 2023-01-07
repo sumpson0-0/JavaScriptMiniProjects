@@ -28,7 +28,7 @@
 		"json-schema-traverse": "^0.4.1",
 		"load-json-file": "^2.0.0",
 		"levn": "^0.4.1",
-		"json5": "^1.0.1",
+		"json5": "^1.0.2",
 		"locate-path": "^2.0.0",
 		"minimatch": "^3.0.4",
 		"lodash": "^4.17.19",
